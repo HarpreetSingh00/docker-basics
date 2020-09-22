@@ -64,6 +64,9 @@
         Explaination: 
                         sh: it is the shell for getting the input from the terminal on linux
 
+> Building an Image:
+    Command: docker build .
+
 > Tagging an Image: 
     Command: docker build -t userDockerId/project-name:version .
         Explaination: 
@@ -72,4 +75,6 @@
                    version: is the actual tag
         Example: 
                 docker build -t harpreetsingh00/docker-basics:latest .
-            
+
+> Docker run with port mapping:
+    command: docker run -p <local port>:<container port> <image id>
