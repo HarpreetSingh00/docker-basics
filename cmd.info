@@ -1,0 +1,75 @@
+> Creating and runnning a Container from image:
+    Command: docker run <image name>
+    Explaination: 
+                    docker: reference to docker client
+                    run: try to create and run container
+                    <image name>: name of image to use for this container
+
+    Creating: setting up the file system from the image to container
+    Running: Running the actual program
+
+    Command: docker run <image name> = docker create <image name> + docker start -a <container id>   
+    Explaination:   
+                 -a: forcing docker to print the output on cmd
+
+> Stopping the docker container: 
+    Command: docker stop <container id>
+
+> Kill a container: 
+    Command: docker kill <container id>
+
+> Overriding the default command that is going to excute, however those commands will only excute if they have that program defined in the file system otherwise they will throw error
+    Command: docker run <image name> <command>
+    Explaination: 
+                    <command>: default command override
+
+> Listing running docker containers in running state: 
+    Command: docker ps
+    Explaination: 
+                    ps: process status
+
+> List of all the container that were ever created:
+    Command: docker ps --all
+
+> Restarting stopped container:
+    Command: docker start -a <container id>
+
+> Removing stopped containers: 
+    Command: docker system prune
+
+> Removing Docker Containers: 
+    Command: docker container rm <container id>
+
+> Retrieving the docker logs: 
+    Command: docker logs <container id>
+
+
+> Multi-command containers: 
+    Example: 
+            docker run redis, this will start the redis server in a container
+            Now we have to config out to run send program inside this container that is
+            redis-cli (outside this container it will throw the error)
+
+    > Execute an additional docker command in a container
+        Command: docker exec -it <container id> <command>   
+        Explaination: 
+                        docker: reference to docker client
+                        exec: run another command
+                        -it: -i allow us to provide input to the redis-cli terminal and -t is for formatting
+                        <container id>: id of the container
+                        <command>: command that needs to be excute
+
+> Getting a command prompt inside a container:
+    Command: docker exec -it <container id> sh 
+        Explaination: 
+                        sh: it is the shell for getting the input from the terminal on linux
+
+> Tagging an Image: 
+    Command: docker build -t userDockerId/project-name:version .
+        Explaination: 
+                        -t: Tagging
+                        . : specifying the directory of files/folders to use for the build
+                   version: is the actual tag
+        Example: 
+                docker build -t harpreetsingh00/docker-basics:latest .
+            
